@@ -1,0 +1,3180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.6 on win32)" generated="2025-08-23T10:29:34.090564" rpa="false" schemaversion="5">
+<suite id="s1" name="Practice Pytest" source="C:\Users\HemantMahaveer-3358\Desktop\Practice Pytest">
+<suite id="s1-s1" name="Test" source="C:\Users\HemantMahaveer-3358\Desktop\Practice Pytest\test.robot">
+<test id="s1-s1-t1" name="IPL_table" line="12">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:29:34.800935" level="INFO">Opening browser 'chrome' to base url 'https://www.iplt20.com/points-table/men'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-23T10:29:34.800345" elapsed="4.502746"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-23T10:29:39.304464" elapsed="0.089541"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-23T10:29:49.395729" level="INFO">Slept 10 seconds.</msg>
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-23T10:29:39.394858" elapsed="10.001106"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:29:49.456992" level="INFO">Element '//button[contains(text(),'Accept cookies')]' is displayed.</msg>
+<arg>${Accept_button}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-23T10:29:49.397734" elapsed="0.059457"/>
+</kw>
+<msg time="2025-08-23T10:29:49.457448" level="INFO">${is_visible} = True</msg>
+<var>${is_visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${Accept_button}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-23T10:29:49.397108" elapsed="0.060399"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:29:49.459260" level="INFO">Clicking button '//button[contains(text(),'Accept cookies')]'.</msg>
+<arg>${Accept_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:29:49.458750" elapsed="0.178782"/>
+</kw>
+<arg>${is_visible}</arg>
+<arg>Click Button</arg>
+<arg>${Accept_button}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:29:49.458276" elapsed="0.179452"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-23T10:30:09.639829" level="INFO">Slept 20 seconds.</msg>
+<arg>20</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-23T10:29:49.638477" elapsed="20.001758"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${table_row}</arg>
+<arg>timeout=25s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.641847" elapsed="0.078173"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:09.721597" level="INFO">${table_data} = []</msg>
+<var>${table_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.721078" elapsed="0.000635"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:09.744217" level="INFO">${rows_count} = 10</msg>
+<var>${rows_count}</var>
+<arg>//tbody[@id='pointsdata']/tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.722556" elapsed="0.021790"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:09.778798" level="INFO">${column_count} = 12</msg>
+<var>${column_count}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.746932" elapsed="0.031990"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:09.779807" level="INFO">${rows_list} = []</msg>
+<var>${rows_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.779328" elapsed="0.000578"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:09.843979" level="INFO">${column_val} = 1</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.781445" elapsed="0.062634"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.844394" elapsed="0.000428"/>
+</kw>
+<var name="${j}">1</var>
+<status status="PASS" start="2025-08-23T10:30:09.781123" elapsed="0.063842"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:09.889059" level="INFO">${column_val} = </msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.845472" elapsed="0.043684"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.889469" elapsed="0.000412"/>
+</kw>
+<var name="${j}">2</var>
+<status status="PASS" start="2025-08-23T10:30:09.845259" elapsed="0.044752"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:09.938950" level="INFO">${column_val} = PBKS</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.890621" elapsed="0.048434"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.939376" elapsed="0.000464"/>
+</kw>
+<var name="${j}">3</var>
+<status status="PASS" start="2025-08-23T10:30:09.890314" elapsed="0.049660"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:09.983461" level="INFO">${column_val} = 14</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.940468" elapsed="0.043091"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.983871" elapsed="0.000404"/>
+</kw>
+<var name="${j}">4</var>
+<status status="PASS" start="2025-08-23T10:30:09.940249" elapsed="0.044155"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.028273" level="INFO">${column_val} = 9</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:09.984933" elapsed="0.043435"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.028678" elapsed="0.000403"/>
+</kw>
+<var name="${j}">5</var>
+<status status="PASS" start="2025-08-23T10:30:09.984718" elapsed="0.044491"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.073304" level="INFO">${column_val} = 4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.030190" elapsed="0.043214"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.073730" elapsed="0.000425"/>
+</kw>
+<var name="${j}">6</var>
+<status status="PASS" start="2025-08-23T10:30:10.029942" elapsed="0.044344"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.118051" level="INFO">${column_val} = 1</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.074786" elapsed="0.043365"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.118465" elapsed="0.000409"/>
+</kw>
+<var name="${j}">7</var>
+<status status="PASS" start="2025-08-23T10:30:10.074573" elapsed="0.044428"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.162605" level="INFO">${column_val} = 0.372</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.119501" elapsed="0.043202"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.163009" elapsed="0.000416"/>
+</kw>
+<var name="${j}">8</var>
+<status status="PASS" start="2025-08-23T10:30:10.119289" elapsed="0.044265"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.206691" level="INFO">${column_val} = 2447/246.4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.164057" elapsed="0.042732"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.207098" elapsed="0.000402"/>
+</kw>
+<var name="${j}">9</var>
+<status status="PASS" start="2025-08-23T10:30:10.163843" elapsed="0.043783"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.251607" level="INFO">${column_val} = 2395/250.5</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.208120" elapsed="0.043585"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.252011" elapsed="0.000402"/>
+</kw>
+<var name="${j}">10</var>
+<status status="PASS" start="2025-08-23T10:30:10.207910" elapsed="0.044630"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.296058" level="INFO">${column_val} = 19</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.253042" elapsed="0.043112"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.296463" elapsed="0.000413"/>
+</kw>
+<var name="${j}">11</var>
+<status status="PASS" start="2025-08-23T10:30:10.252828" elapsed="0.044173"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.344213" level="INFO">${column_val} = W
+L
+W
+W
+W</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.297494" elapsed="0.046821"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.344626" elapsed="0.000406"/>
+</kw>
+<var name="${j}">12</var>
+<status status="PASS" start="2025-08-23T10:30:10.297284" elapsed="0.047875"/>
+</iter>
+<var>${j}</var>
+<value>1</value>
+<value>${column_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:09.780247" elapsed="0.565055"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${rows_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.345585" elapsed="0.000445"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-08-23T10:30:09.746552" elapsed="0.599607"/>
+</iter>
+<iter>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.372609" level="INFO">${column_count} = 12</msg>
+<var>${column_count}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.346761" elapsed="0.025947"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:10.373346" level="INFO">${rows_list} = []</msg>
+<var>${rows_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.373025" elapsed="0.000392"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.418832" level="INFO">${column_val} = 2</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.374295" elapsed="0.044713"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.419592" elapsed="0.000638"/>
+</kw>
+<var name="${j}">1</var>
+<status status="PASS" start="2025-08-23T10:30:10.374073" elapsed="0.046317"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.465911" level="INFO">${column_val} = </msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.421060" elapsed="0.044950"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.466321" elapsed="0.000422"/>
+</kw>
+<var name="${j}">2</var>
+<status status="PASS" start="2025-08-23T10:30:10.420768" elapsed="0.046105"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.512933" level="INFO">${column_val} = RCB</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.467372" elapsed="0.045663"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.513362" elapsed="0.000732"/>
+</kw>
+<var name="${j}">3</var>
+<status status="PASS" start="2025-08-23T10:30:10.467160" elapsed="0.047071"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.557489" level="INFO">${column_val} = 14</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.514722" elapsed="0.042871"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.557909" elapsed="0.000415"/>
+</kw>
+<var name="${j}">4</var>
+<status status="PASS" start="2025-08-23T10:30:10.514507" elapsed="0.043956"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.602245" level="INFO">${column_val} = 9</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.558946" elapsed="0.043399"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.602657" elapsed="0.000404"/>
+</kw>
+<var name="${j}">5</var>
+<status status="PASS" start="2025-08-23T10:30:10.558732" elapsed="0.044456"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.647559" level="INFO">${column_val} = 4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.603683" elapsed="0.043977"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.647975" elapsed="0.000407"/>
+</kw>
+<var name="${j}">6</var>
+<status status="PASS" start="2025-08-23T10:30:10.603473" elapsed="0.045034"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.692137" level="INFO">${column_val} = 1</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.649007" elapsed="0.043229"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.692553" elapsed="0.000404"/>
+</kw>
+<var name="${j}">7</var>
+<status status="PASS" start="2025-08-23T10:30:10.648791" elapsed="0.044290"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.736898" level="INFO">${column_val} = 0.301</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.693558" elapsed="0.043440"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.737303" elapsed="0.000405"/>
+</kw>
+<var name="${j}">8</var>
+<status status="PASS" start="2025-08-23T10:30:10.693348" elapsed="0.044483"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.792086" level="INFO">${column_val} = 2357/243.5</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.738330" elapsed="0.053854"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.792493" elapsed="0.000403"/>
+</kw>
+<var name="${j}">9</var>
+<status status="PASS" start="2025-08-23T10:30:10.738120" elapsed="0.054904"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.836523" level="INFO">${column_val} = 2321/247.5</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.793519" elapsed="0.043104"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.836927" elapsed="0.000399"/>
+</kw>
+<var name="${j}">10</var>
+<status status="PASS" start="2025-08-23T10:30:10.793306" elapsed="0.044148"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.880621" level="INFO">${column_val} = 19</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.837950" elapsed="0.042770"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.881030" elapsed="0.000409"/>
+</kw>
+<var name="${j}">11</var>
+<status status="PASS" start="2025-08-23T10:30:10.837738" elapsed="0.043830"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.928599" level="INFO">${column_val} = W
+L
+N
+W
+W</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.882082" elapsed="0.046617"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.929006" elapsed="0.000402"/>
+</kw>
+<var name="${j}">12</var>
+<status status="PASS" start="2025-08-23T10:30:10.881870" elapsed="0.047667"/>
+</iter>
+<var>${j}</var>
+<value>1</value>
+<value>${column_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:10.373585" elapsed="0.556095"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${rows_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.929960" elapsed="0.000370"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2025-08-23T10:30:10.346520" elapsed="0.583931"/>
+</iter>
+<iter>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:10.956573" level="INFO">${column_count} = 12</msg>
+<var>${column_count}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.931012" elapsed="0.025660"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:10.957305" level="INFO">${rows_list} = []</msg>
+<var>${rows_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.956986" elapsed="0.000389"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.001138" level="INFO">${column_val} = 3</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:10.958251" elapsed="0.043312"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.002104" elapsed="0.000461"/>
+</kw>
+<var name="${j}">1</var>
+<status status="PASS" start="2025-08-23T10:30:10.958031" elapsed="0.044666"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.049821" level="INFO">${column_val} = </msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.003191" elapsed="0.046728"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.050229" elapsed="0.000412"/>
+</kw>
+<var name="${j}">2</var>
+<status status="PASS" start="2025-08-23T10:30:11.002975" elapsed="0.047809"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.097956" level="INFO">${column_val} = GT</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.051266" elapsed="0.046786"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.098357" elapsed="0.000395"/>
+</kw>
+<var name="${j}">3</var>
+<status status="PASS" start="2025-08-23T10:30:11.051054" elapsed="0.047824"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.143253" level="INFO">${column_val} = 14</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.099373" elapsed="0.043981"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.143662" elapsed="0.000401"/>
+</kw>
+<var name="${j}">4</var>
+<status status="PASS" start="2025-08-23T10:30:11.099161" elapsed="0.045173"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.190408" level="INFO">${column_val} = 9</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.145190" elapsed="0.045316"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.190817" elapsed="0.000401"/>
+</kw>
+<var name="${j}">5</var>
+<status status="PASS" start="2025-08-23T10:30:11.144871" elapsed="0.046473"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.237509" level="INFO">${column_val} = 5</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.192039" elapsed="0.045571"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.237916" elapsed="0.000408"/>
+</kw>
+<var name="${j}">6</var>
+<status status="PASS" start="2025-08-23T10:30:11.191686" elapsed="0.046763"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.282441" level="INFO">${column_val} = 0</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.238951" elapsed="0.043584"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.282843" elapsed="0.000401"/>
+</kw>
+<var name="${j}">7</var>
+<status status="PASS" start="2025-08-23T10:30:11.238736" elapsed="0.044634"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.327797" level="INFO">${column_val} = 0.254</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.283865" elapsed="0.044031"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.328207" elapsed="0.000406"/>
+</kw>
+<var name="${j}">8</var>
+<status status="PASS" start="2025-08-23T10:30:11.283653" elapsed="0.045085"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.372367" level="INFO">${column_val} = 2684/271.5</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.329240" elapsed="0.043227"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.372772" elapsed="0.000400"/>
+</kw>
+<var name="${j}">9</var>
+<status status="PASS" start="2025-08-23T10:30:11.329028" elapsed="0.044269"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.417522" level="INFO">${column_val} = 2639/274.2</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.373800" elapsed="0.043821"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.417933" elapsed="0.000400"/>
+</kw>
+<var name="${j}">10</var>
+<status status="PASS" start="2025-08-23T10:30:11.373584" elapsed="0.044876"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.461923" level="INFO">${column_val} = 18</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.418962" elapsed="0.043120"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.462486" elapsed="0.000492"/>
+</kw>
+<var name="${j}">11</var>
+<status status="PASS" start="2025-08-23T10:30:11.418746" elapsed="0.044388"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.510403" level="INFO">${column_val} = L
+L
+W
+W
+W</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.463686" elapsed="0.046816"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.511062" elapsed="0.000418"/>
+</kw>
+<var name="${j}">12</var>
+<status status="PASS" start="2025-08-23T10:30:11.463447" elapsed="0.048162"/>
+</iter>
+<var>${j}</var>
+<value>1</value>
+<value>${column_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:10.957542" elapsed="0.554193"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${rows_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.512003" elapsed="0.000385"/>
+</kw>
+<var name="${i}">3</var>
+<status status="PASS" start="2025-08-23T10:30:10.930786" elapsed="0.581725"/>
+</iter>
+<iter>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.538618" level="INFO">${column_count} = 12</msg>
+<var>${column_count}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.513059" elapsed="0.025659"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:11.539360" level="INFO">${rows_list} = []</msg>
+<var>${rows_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.539037" elapsed="0.000394"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.584943" level="INFO">${column_val} = 4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.540321" elapsed="0.044717"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.585344" elapsed="0.000400"/>
+</kw>
+<var name="${j}">1</var>
+<status status="PASS" start="2025-08-23T10:30:11.540097" elapsed="0.045774"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.631762" level="INFO">${column_val} = </msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.586360" elapsed="0.045502"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.632166" elapsed="0.000400"/>
+</kw>
+<var name="${j}">2</var>
+<status status="PASS" start="2025-08-23T10:30:11.586148" elapsed="0.046546"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.681093" level="INFO">${column_val} = MI</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.633191" elapsed="0.048010"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.681543" elapsed="0.000590"/>
+</kw>
+<var name="${j}">3</var>
+<status status="PASS" start="2025-08-23T10:30:11.632978" elapsed="0.049293"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.720578" level="INFO">${column_val} = 14</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.682765" elapsed="0.037913"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.720986" elapsed="0.000403"/>
+</kw>
+<var name="${j}">4</var>
+<status status="PASS" start="2025-08-23T10:30:11.682546" elapsed="0.038971"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.764446" level="INFO">${column_val} = 8</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.722017" elapsed="0.042529"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.764861" elapsed="0.000408"/>
+</kw>
+<var name="${j}">5</var>
+<status status="PASS" start="2025-08-23T10:30:11.721803" elapsed="0.043593"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.809433" level="INFO">${column_val} = 6</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.765899" elapsed="0.043635"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.809840" elapsed="0.000400"/>
+</kw>
+<var name="${j}">6</var>
+<status status="PASS" start="2025-08-23T10:30:11.765682" elapsed="0.044686"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.854721" level="INFO">${column_val} = 0</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.810864" elapsed="0.043955"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.855142" elapsed="0.000399"/>
+</kw>
+<var name="${j}">7</var>
+<status status="PASS" start="2025-08-23T10:30:11.810648" elapsed="0.045023"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.900060" level="INFO">${column_val} = 1.142</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.856190" elapsed="0.043969"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.900476" elapsed="0.000397"/>
+</kw>
+<var name="${j}">8</var>
+<status status="PASS" start="2025-08-23T10:30:11.855959" elapsed="0.045039"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.945234" level="INFO">${column_val} = 2472/261.2</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.901469" elapsed="0.043865"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.945640" elapsed="0.000401"/>
+</kw>
+<var name="${j}">9</var>
+<status status="PASS" start="2025-08-23T10:30:11.901258" elapsed="0.044907"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:11.989941" level="INFO">${column_val} = 2301/276.4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.946857" elapsed="0.043182"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.990352" elapsed="0.000409"/>
+</kw>
+<var name="${j}">10</var>
+<status status="PASS" start="2025-08-23T10:30:11.946464" elapsed="0.044426"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.025303" level="INFO">${column_val} = 16</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:11.991390" elapsed="0.033978"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.025577" elapsed="0.000259"/>
+</kw>
+<var name="${j}">11</var>
+<status status="PASS" start="2025-08-23T10:30:11.991175" elapsed="0.034741"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.062266" level="INFO">${column_val} = L
+W
+L
+W
+W</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.026223" elapsed="0.036106"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.062583" elapsed="0.000247"/>
+</kw>
+<var name="${j}">12</var>
+<status status="PASS" start="2025-08-23T10:30:12.026087" elapsed="0.036820"/>
+</iter>
+<var>${j}</var>
+<value>1</value>
+<value>${column_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:11.539604" elapsed="0.523378"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${rows_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.063143" elapsed="0.000224"/>
+</kw>
+<var name="${i}">4</var>
+<status status="PASS" start="2025-08-23T10:30:11.512844" elapsed="0.550596"/>
+</iter>
+<iter>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.082941" level="INFO">${column_count} = 12</msg>
+<var>${column_count}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.063769" elapsed="0.019235"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:12.083414" level="INFO">${rows_list} = []</msg>
+<var>${rows_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.083214" elapsed="0.000242"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.117971" level="INFO">${column_val} = 5</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.083993" elapsed="0.034042"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.118242" elapsed="0.000254"/>
+</kw>
+<var name="${j}">1</var>
+<status status="PASS" start="2025-08-23T10:30:12.083857" elapsed="0.034719"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.153910" level="INFO">${column_val} = </msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.118873" elapsed="0.035101"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.154178" elapsed="0.000268"/>
+</kw>
+<var name="${j}">2</var>
+<status status="PASS" start="2025-08-23T10:30:12.118740" elapsed="0.035782"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.194261" level="INFO">${column_val} = DC</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.154811" elapsed="0.039513"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.194524" elapsed="0.000254"/>
+</kw>
+<var name="${j}">3</var>
+<status status="PASS" start="2025-08-23T10:30:12.154682" elapsed="0.040169"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.229119" level="INFO">${column_val} = 14</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.195128" elapsed="0.034054"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.229429" elapsed="0.000248"/>
+</kw>
+<var name="${j}">4</var>
+<status status="PASS" start="2025-08-23T10:30:12.195005" elapsed="0.034749"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.264000" level="INFO">${column_val} = 7</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.230050" elapsed="0.034013"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.264320" elapsed="0.000240"/>
+</kw>
+<var name="${j}">5</var>
+<status status="PASS" start="2025-08-23T10:30:12.229921" elapsed="0.034712"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.298403" level="INFO">${column_val} = 6</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.264909" elapsed="0.033559"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.298675" elapsed="0.000263"/>
+</kw>
+<var name="${j}">6</var>
+<status status="PASS" start="2025-08-23T10:30:12.264785" elapsed="0.034234"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.333222" level="INFO">${column_val} = 1</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.299329" elapsed="0.033956"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.333490" elapsed="0.000369"/>
+</kw>
+<var name="${j}">7</var>
+<status status="PASS" start="2025-08-23T10:30:12.299197" elapsed="0.035126"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.369234" level="INFO">${column_val} = 0.011</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.334673" elapsed="0.034638"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.369515" elapsed="0.000249"/>
+</kw>
+<var name="${j}">8</var>
+<status status="PASS" start="2025-08-23T10:30:12.334526" elapsed="0.035314"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.404875" level="INFO">${column_val} = 2354/250.4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.370135" elapsed="0.034808"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.405193" elapsed="0.000260"/>
+</kw>
+<var name="${j}">9</var>
+<status status="PASS" start="2025-08-23T10:30:12.370003" elapsed="0.035531"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.440536" level="INFO">${column_val} = 2409/256.5</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.405839" elapsed="0.034766"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.440827" elapsed="0.000272"/>
+</kw>
+<var name="${j}">10</var>
+<status status="PASS" start="2025-08-23T10:30:12.405702" elapsed="0.035481"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.474520" level="INFO">${column_val} = 15</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.441498" elapsed="0.033120"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.474930" elapsed="0.000399"/>
+</kw>
+<var name="${j}">11</var>
+<status status="PASS" start="2025-08-23T10:30:12.441357" elapsed="0.034101"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.518826" level="INFO">${column_val} = W
+L
+L
+N
+L</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.475928" elapsed="0.042997"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.519239" elapsed="0.000400"/>
+</kw>
+<var name="${j}">12</var>
+<status status="PASS" start="2025-08-23T10:30:12.475714" elapsed="0.044051"/>
+</iter>
+<var>${j}</var>
+<value>1</value>
+<value>${column_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:12.083553" elapsed="0.436351"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${rows_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.520177" elapsed="0.000360"/>
+</kw>
+<var name="${i}">5</var>
+<status status="PASS" start="2025-08-23T10:30:12.063639" elapsed="0.457017"/>
+</iter>
+<iter>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.546804" level="INFO">${column_count} = 12</msg>
+<var>${column_count}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.521202" elapsed="0.025700"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:12.547537" level="INFO">${rows_list} = []</msg>
+<var>${rows_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.547223" elapsed="0.000384"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.594455" level="INFO">${column_val} = 6</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.548488" elapsed="0.046067"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.594865" elapsed="0.000398"/>
+</kw>
+<var name="${j}">1</var>
+<status status="PASS" start="2025-08-23T10:30:12.548264" elapsed="0.047124"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.641006" level="INFO">${column_val} = </msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.595879" elapsed="0.045226"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.641416" elapsed="0.000405"/>
+</kw>
+<var name="${j}">2</var>
+<status status="PASS" start="2025-08-23T10:30:12.595666" elapsed="0.046284"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.691151" level="INFO">${column_val} = SRH</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.642456" elapsed="0.048794"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.691563" elapsed="0.000396"/>
+</kw>
+<var name="${j}">3</var>
+<status status="PASS" start="2025-08-23T10:30:12.642230" elapsed="0.049856"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.737064" level="INFO">${column_val} = 14</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.692576" elapsed="0.044586"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.737476" elapsed="0.000399"/>
+</kw>
+<var name="${j}">4</var>
+<status status="PASS" start="2025-08-23T10:30:12.692362" elapsed="0.045639"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.782630" level="INFO">${column_val} = 6</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.738494" elapsed="0.044236"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.783184" elapsed="0.000409"/>
+</kw>
+<var name="${j}">5</var>
+<status status="PASS" start="2025-08-23T10:30:12.738279" elapsed="0.045458"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.828457" level="INFO">${column_val} = 7</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.784211" elapsed="0.044348"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.828892" elapsed="0.000429"/>
+</kw>
+<var name="${j}">6</var>
+<status status="PASS" start="2025-08-23T10:30:12.783996" elapsed="0.045480"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.874296" level="INFO">${column_val} = 1</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.829985" elapsed="0.044416"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.874726" elapsed="0.000405"/>
+</kw>
+<var name="${j}">7</var>
+<status status="PASS" start="2025-08-23T10:30:12.829752" elapsed="0.045509"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.920138" level="INFO">${column_val} = -0.241</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.875743" elapsed="0.044494"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.920557" elapsed="0.000400"/>
+</kw>
+<var name="${j}">8</var>
+<status status="PASS" start="2025-08-23T10:30:12.875525" elapsed="0.045563"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:12.966359" level="INFO">${column_val} = 2519/255.3</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.921585" elapsed="0.044874"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.966774" elapsed="0.000398"/>
+</kw>
+<var name="${j}">9</var>
+<status status="PASS" start="2025-08-23T10:30:12.921370" elapsed="0.045929"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.010932" level="INFO">${column_val} = 2451/242.4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:12.967795" elapsed="0.043239"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.011348" elapsed="0.000400"/>
+</kw>
+<var name="${j}">10</var>
+<status status="PASS" start="2025-08-23T10:30:12.967580" elapsed="0.044295"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.055336" level="INFO">${column_val} = 13</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.012373" elapsed="0.043062"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.055748" elapsed="0.000397"/>
+</kw>
+<var name="${j}">11</var>
+<status status="PASS" start="2025-08-23T10:30:13.012159" elapsed="0.044111"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.105124" level="INFO">${column_val} = W
+W
+W
+N
+L</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.056766" elapsed="0.048463"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.105541" elapsed="0.000400"/>
+</kw>
+<var name="${j}">12</var>
+<status status="PASS" start="2025-08-23T10:30:13.056553" elapsed="0.049514"/>
+</iter>
+<var>${j}</var>
+<value>1</value>
+<value>${column_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:12.547777" elapsed="0.558432"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${rows_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.106482" elapsed="0.000364"/>
+</kw>
+<var name="${i}">6</var>
+<status status="PASS" start="2025-08-23T10:30:12.520985" elapsed="0.585979"/>
+</iter>
+<iter>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.133223" level="INFO">${column_count} = 12</msg>
+<var>${column_count}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.107514" elapsed="0.025807"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:13.133971" level="INFO">${rows_list} = []</msg>
+<var>${rows_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.133651" elapsed="0.000390"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.179694" level="INFO">${column_val} = 7</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.134924" elapsed="0.044868"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.180130" elapsed="0.000405"/>
+</kw>
+<var name="${j}">1</var>
+<status status="PASS" start="2025-08-23T10:30:13.134700" elapsed="0.045963"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.226487" level="INFO">${column_val} = </msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.181170" elapsed="0.045414"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.226897" elapsed="0.000400"/>
+</kw>
+<var name="${j}">2</var>
+<status status="PASS" start="2025-08-23T10:30:13.180952" elapsed="0.046619"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.277964" level="INFO">${column_val} = LSG</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.228079" elapsed="0.049981"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.278376" elapsed="0.000477"/>
+</kw>
+<var name="${j}">3</var>
+<status status="PASS" start="2025-08-23T10:30:13.227860" elapsed="0.051135"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.324480" level="INFO">${column_val} = 14</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.279483" elapsed="0.045093"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.324888" elapsed="0.000398"/>
+</kw>
+<var name="${j}">4</var>
+<status status="PASS" start="2025-08-23T10:30:13.279268" elapsed="0.046144"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.370100" level="INFO">${column_val} = 6</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.325913" elapsed="0.044282"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.370504" elapsed="0.000397"/>
+</kw>
+<var name="${j}">5</var>
+<status status="PASS" start="2025-08-23T10:30:13.325699" elapsed="0.045329"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.415627" level="INFO">${column_val} = 8</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.371529" elapsed="0.044202"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.416053" elapsed="0.000407"/>
+</kw>
+<var name="${j}">6</var>
+<status status="PASS" start="2025-08-23T10:30:13.371315" elapsed="0.045272"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.461995" level="INFO">${column_val} = 0</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.417093" elapsed="0.045013"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.462469" elapsed="0.000465"/>
+</kw>
+<var name="${j}">7</var>
+<status status="PASS" start="2025-08-23T10:30:13.416877" elapsed="0.046185"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.507623" level="INFO">${column_val} = -0.376</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.463547" elapsed="0.044179"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.508055" elapsed="0.000400"/>
+</kw>
+<var name="${j}">8</var>
+<status status="PASS" start="2025-08-23T10:30:13.463335" elapsed="0.045247"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.554338" level="INFO">${column_val} = 2732/275.4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.509250" elapsed="0.045187"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.554746" elapsed="0.000401"/>
+</kw>
+<var name="${j}">9</var>
+<status status="PASS" start="2025-08-23T10:30:13.508877" elapsed="0.046399"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.599613" level="INFO">${column_val} = 2779/270.1</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.555777" elapsed="0.043929"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.600008" elapsed="0.000394"/>
+</kw>
+<var name="${j}">10</var>
+<status status="PASS" start="2025-08-23T10:30:13.555563" elapsed="0.044966"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.646737" level="INFO">${column_val} = 12</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.601024" elapsed="0.045810"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.647144" elapsed="0.000398"/>
+</kw>
+<var name="${j}">11</var>
+<status status="PASS" start="2025-08-23T10:30:13.600811" elapsed="0.046857"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.697033" level="INFO">${column_val} = L
+W
+L
+L
+L</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.648195" elapsed="0.048939"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.697445" elapsed="0.000419"/>
+</kw>
+<var name="${j}">12</var>
+<status status="PASS" start="2025-08-23T10:30:13.647972" elapsed="0.050016"/>
+</iter>
+<var>${j}</var>
+<value>1</value>
+<value>${column_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:13.134210" elapsed="0.563917"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${rows_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.698427" elapsed="0.000593"/>
+</kw>
+<var name="${i}">7</var>
+<status status="PASS" start="2025-08-23T10:30:13.107296" elapsed="0.591861"/>
+</iter>
+<iter>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.728997" level="INFO">${column_count} = 12</msg>
+<var>${column_count}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.699719" elapsed="0.029436"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:13.730475" level="INFO">${rows_list} = []</msg>
+<var>${rows_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.729898" elapsed="0.000721"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.770925" level="INFO">${column_val} = 8</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.732148" elapsed="0.038940"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.771604" elapsed="0.000732"/>
+</kw>
+<var name="${j}">1</var>
+<status status="PASS" start="2025-08-23T10:30:13.731757" elapsed="0.040814"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.819410" level="INFO">${column_val} = </msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.773410" elapsed="0.046101"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.819821" elapsed="0.000405"/>
+</kw>
+<var name="${j}">2</var>
+<status status="PASS" start="2025-08-23T10:30:13.773044" elapsed="0.047309"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.869506" level="INFO">${column_val} = KKR</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.820857" elapsed="0.048809"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.870183" elapsed="0.000727"/>
+</kw>
+<var name="${j}">3</var>
+<status status="PASS" start="2025-08-23T10:30:13.820640" elapsed="0.050510"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.916448" level="INFO">${column_val} = 14</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.871990" elapsed="0.044556"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.916851" elapsed="0.000401"/>
+</kw>
+<var name="${j}">4</var>
+<status status="PASS" start="2025-08-23T10:30:13.871627" elapsed="0.045749"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:13.962171" level="INFO">${column_val} = 5</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.917871" elapsed="0.044401"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.962581" elapsed="0.000396"/>
+</kw>
+<var name="${j}">5</var>
+<status status="PASS" start="2025-08-23T10:30:13.917658" elapsed="0.045446"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.004218" level="INFO">${column_val} = 7</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:13.963612" elapsed="0.040704"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.004625" elapsed="0.000400"/>
+</kw>
+<var name="${j}">6</var>
+<status status="PASS" start="2025-08-23T10:30:13.963398" elapsed="0.041753"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.050150" level="INFO">${column_val} = 2</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.005640" elapsed="0.044610"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.050557" elapsed="0.000401"/>
+</kw>
+<var name="${j}">7</var>
+<status status="PASS" start="2025-08-23T10:30:14.005434" elapsed="0.045650"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.097629" level="INFO">${column_val} = -0.305</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.051577" elapsed="0.046153"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.098040" elapsed="0.000422"/>
+</kw>
+<var name="${j}">8</var>
+<status status="PASS" start="2025-08-23T10:30:14.051367" elapsed="0.047223"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.143532" level="INFO">${column_val} = 1995/227.4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.099088" elapsed="0.044578"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.144024" elapsed="0.000488"/>
+</kw>
+<var name="${j}">9</var>
+<status status="PASS" start="2025-08-23T10:30:14.098876" elapsed="0.045767"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.188311" level="INFO">${column_val} = 2075/228.5</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.145120" elapsed="0.043291"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.188718" elapsed="0.000399"/>
+</kw>
+<var name="${j}">10</var>
+<status status="PASS" start="2025-08-23T10:30:14.144909" elapsed="0.044333"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.233871" level="INFO">${column_val} = 12</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.189736" elapsed="0.044234"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.234279" elapsed="0.000421"/>
+</kw>
+<var name="${j}">11</var>
+<status status="PASS" start="2025-08-23T10:30:14.189528" elapsed="0.045452"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.285000" level="INFO">${column_val} = L
+N
+L
+W
+W</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.235479" elapsed="0.049622"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.285412" elapsed="0.000827"/>
+</kw>
+<var name="${j}">12</var>
+<status status="PASS" start="2025-08-23T10:30:14.235265" elapsed="0.051117"/>
+</iter>
+<var>${j}</var>
+<value>1</value>
+<value>${column_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:13.730913" elapsed="0.555596"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${rows_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.286801" elapsed="0.000376"/>
+</kw>
+<var name="${i}">8</var>
+<status status="PASS" start="2025-08-23T10:30:13.699501" elapsed="0.587799"/>
+</iter>
+<iter>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.313656" level="INFO">${column_count} = 12</msg>
+<var>${column_count}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.287842" elapsed="0.025913"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:14.314398" level="INFO">${rows_list} = []</msg>
+<var>${rows_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.314075" elapsed="0.000394"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.360812" level="INFO">${column_val} = 9</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.315358" elapsed="0.045551"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.361222" elapsed="0.000425"/>
+</kw>
+<var name="${j}">1</var>
+<status status="PASS" start="2025-08-23T10:30:14.315135" elapsed="0.046640"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.408746" level="INFO">${column_val} = </msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.362272" elapsed="0.046570"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.409150" elapsed="0.000404"/>
+</kw>
+<var name="${j}">2</var>
+<status status="PASS" start="2025-08-23T10:30:14.362059" elapsed="0.047622"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.458126" level="INFO">${column_val} = RR</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.410175" elapsed="0.048048"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.458530" elapsed="0.000402"/>
+</kw>
+<var name="${j}">3</var>
+<status status="PASS" start="2025-08-23T10:30:14.409964" elapsed="0.049091"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.504701" level="INFO">${column_val} = 14</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.459550" elapsed="0.045249"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.505106" elapsed="0.000402"/>
+</kw>
+<var name="${j}">4</var>
+<status status="PASS" start="2025-08-23T10:30:14.459337" elapsed="0.046296"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.551078" level="INFO">${column_val} = 4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.506128" elapsed="0.045047"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.551481" elapsed="0.000403"/>
+</kw>
+<var name="${j}">5</var>
+<status status="PASS" start="2025-08-23T10:30:14.505915" elapsed="0.046095"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.598367" level="INFO">${column_val} = 10</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.552512" elapsed="0.045954"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.598794" elapsed="0.000428"/>
+</kw>
+<var name="${j}">6</var>
+<status status="PASS" start="2025-08-23T10:30:14.552295" elapsed="0.047062"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.646579" level="INFO">${column_val} = 0</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.599885" elapsed="0.046791"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.646980" elapsed="0.000395"/>
+</kw>
+<var name="${j}">7</var>
+<status status="PASS" start="2025-08-23T10:30:14.599659" elapsed="0.047840"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.692703" level="INFO">${column_val} = -0.549</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.647997" elapsed="0.044803"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.693118" elapsed="0.000400"/>
+</kw>
+<var name="${j}">8</var>
+<status status="PASS" start="2025-08-23T10:30:14.647782" elapsed="0.045862"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.739352" level="INFO">${column_val} = 2603/273.0</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.694143" elapsed="0.045306"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.739912" elapsed="0.000407"/>
+</kw>
+<var name="${j}">9</var>
+<status status="PASS" start="2025-08-23T10:30:14.693929" elapsed="0.046538"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.785097" level="INFO">${column_val} = 2773/275.0</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.740949" elapsed="0.044244"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.785511" elapsed="0.000404"/>
+</kw>
+<var name="${j}">10</var>
+<status status="PASS" start="2025-08-23T10:30:14.740736" elapsed="0.045307"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.830104" level="INFO">${column_val} = 8</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.786546" elapsed="0.043654"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.830514" elapsed="0.000403"/>
+</kw>
+<var name="${j}">11</var>
+<status status="PASS" start="2025-08-23T10:30:14.786331" elapsed="0.044715"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.879058" level="INFO">${column_val} = W
+L
+L
+L
+W</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.831541" elapsed="0.047616"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.879472" elapsed="0.000404"/>
+</kw>
+<var name="${j}">12</var>
+<status status="PASS" start="2025-08-23T10:30:14.831330" elapsed="0.048672"/>
+</iter>
+<var>${j}</var>
+<value>1</value>
+<value>${column_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:14.314641" elapsed="0.565502"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${rows_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.880412" elapsed="0.000365"/>
+</kw>
+<var name="${i}">9</var>
+<status status="PASS" start="2025-08-23T10:30:14.287629" elapsed="0.593271"/>
+</iter>
+<iter>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.907022" level="INFO">${column_count} = 12</msg>
+<var>${column_count}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.881441" elapsed="0.025680"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-23T10:30:14.907765" level="INFO">${rows_list} = []</msg>
+<var>${rows_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.907443" elapsed="0.000394"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.952224" level="INFO">${column_val} = 10</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.908720" elapsed="0.043601"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.952629" elapsed="0.000403"/>
+</kw>
+<var name="${j}">1</var>
+<status status="PASS" start="2025-08-23T10:30:14.908497" elapsed="0.044665"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:14.998601" level="INFO">${column_val} = </msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.954023" elapsed="0.044677"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:14.999015" elapsed="0.000402"/>
+</kw>
+<var name="${j}">2</var>
+<status status="PASS" start="2025-08-23T10:30:14.953718" elapsed="0.045828"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:15.046122" level="INFO">${column_val} = CSK</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.000045" elapsed="0.046177"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.046554" elapsed="0.000403"/>
+</kw>
+<var name="${j}">3</var>
+<status status="PASS" start="2025-08-23T10:30:14.999831" elapsed="0.047254"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:15.091371" level="INFO">${column_val} = 14</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.047580" elapsed="0.043893"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.091786" elapsed="0.000405"/>
+</kw>
+<var name="${j}">4</var>
+<status status="PASS" start="2025-08-23T10:30:15.047368" elapsed="0.044951"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:15.136667" level="INFO">${column_val} = 4</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.092821" elapsed="0.043947"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.137081" elapsed="0.000405"/>
+</kw>
+<var name="${j}">5</var>
+<status status="PASS" start="2025-08-23T10:30:15.092606" elapsed="0.045007"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:15.182132" level="INFO">${column_val} = 10</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.138110" elapsed="0.044123"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.182542" elapsed="0.000401"/>
+</kw>
+<var name="${j}">6</var>
+<status status="PASS" start="2025-08-23T10:30:15.137899" elapsed="0.045169"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:15.227746" level="INFO">${column_val} = 0</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.183821" elapsed="0.044025"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.228163" elapsed="0.000408"/>
+</kw>
+<var name="${j}">7</var>
+<status status="PASS" start="2025-08-23T10:30:15.183594" elapsed="0.045106"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:15.274722" level="INFO">${column_val} = -0.647</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.229198" elapsed="0.045622"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.275139" elapsed="0.000409"/>
+</kw>
+<var name="${j}">8</var>
+<status status="PASS" start="2025-08-23T10:30:15.228984" elapsed="0.046695"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:15.321153" level="INFO">${column_val} = 2441/278.2</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.276177" elapsed="0.045079"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.321568" elapsed="0.000405"/>
+</kw>
+<var name="${j}">9</var>
+<status status="PASS" start="2025-08-23T10:30:15.275964" elapsed="0.046138"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:15.365334" level="INFO">${column_val} = 2461/261.2</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.322594" elapsed="0.042899"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.365826" elapsed="0.000436"/>
+</kw>
+<var name="${j}">10</var>
+<status status="PASS" start="2025-08-23T10:30:15.322381" elapsed="0.044011"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:15.410069" level="INFO">${column_val} = 8</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.366870" elapsed="0.043297"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.410481" elapsed="0.000424"/>
+</kw>
+<var name="${j}">11</var>
+<status status="PASS" start="2025-08-23T10:30:15.366657" elapsed="0.044379"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-23T10:30:15.459146" level="INFO">${column_val} = W
+L
+W
+L
+L</msg>
+<var>${column_val}</var>
+<arg>//tbody[@id='pointsdata']/tr[${i}]/td[${j}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.411526" elapsed="0.047720"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${rows_list}</arg>
+<arg>${column_val}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.459563" elapsed="0.000652"/>
+</kw>
+<var name="${j}">12</var>
+<status status="PASS" start="2025-08-23T10:30:15.411316" elapsed="0.049080"/>
+</iter>
+<var>${j}</var>
+<value>1</value>
+<value>${column_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:14.908007" elapsed="0.552521"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${rows_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.460807" elapsed="0.000377"/>
+</kw>
+<var name="${i}">10</var>
+<status status="PASS" start="2025-08-23T10:30:14.881227" elapsed="0.580082"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>${rows_count}+1</value>
+<status status="PASS" start="2025-08-23T10:30:09.745472" elapsed="5.715948"/>
+</for>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.462792" level="INFO">${won_dict} = {}</msg>
+<var>${won_dict}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.462258" elapsed="0.000614"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.463858" level="INFO">Length is 10.</msg>
+<msg time="2025-08-23T10:30:15.464080" level="INFO">${count_list} = 10</msg>
+<var>${count_list}</var>
+<arg>${table_data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.463519" elapsed="0.000640"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.465915" level="INFO">${rows} = ['1', '', 'PBKS', '14', '9', '4', '1', '0.372', '2447/246.4', '2395/250.5', '19', 'W\nL\nW\nW\nW']</msg>
+<var>${rows}</var>
+<arg>${table_data}</arg>
+<arg>${l1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.465476" elapsed="0.000514"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.466647" level="INFO">${team} = PBKS</msg>
+<var>${team}</var>
+<arg>${rows}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.466243" elapsed="0.000474"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.467333" level="INFO">${num_won} = W
+L
+W
+W
+W</msg>
+<var>${num_won}</var>
+<arg>${rows}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.466971" elapsed="0.000431"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.468172" level="INFO">${split_text} = ['W', 'L', 'W', 'W', 'W']</msg>
+<var>${split_text}</var>
+<arg>'''${num_won}'''.split('\\n')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.467670" elapsed="0.000574"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.469033" level="INFO">${count_w} = 4</msg>
+<var>${count_w}</var>
+<arg>${split_text}.count('W')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.468511" elapsed="0.000594"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${won_dict}</arg>
+<arg>${team}=${count_w}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.469355" elapsed="0.000478"/>
+</kw>
+<var name="${l1}">0</var>
+<status status="PASS" start="2025-08-23T10:30:15.465266" elapsed="0.004693"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.470899" level="INFO">${rows} = ['2', '', 'RCB', '14', '9', '4', '1', '0.301', '2357/243.5', '2321/247.5', '19', 'W\nL\nN\nW\nW']</msg>
+<var>${rows}</var>
+<arg>${table_data}</arg>
+<arg>${l1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.470461" elapsed="0.000745"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.471889" level="INFO">${team} = RCB</msg>
+<var>${team}</var>
+<arg>${rows}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.471490" elapsed="0.000469"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.472598" level="INFO">${num_won} = W
+L
+N
+W
+W</msg>
+<var>${num_won}</var>
+<arg>${rows}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.472217" elapsed="0.000452"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.473403" level="INFO">${split_text} = ['W', 'L', 'N', 'W', 'W']</msg>
+<var>${split_text}</var>
+<arg>'''${num_won}'''.split('\\n')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.472924" elapsed="0.000552"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.474220" level="INFO">${count_w} = 3</msg>
+<var>${count_w}</var>
+<arg>${split_text}.count('W')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.473726" elapsed="0.000577"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${won_dict}</arg>
+<arg>${team}=${count_w}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.474552" elapsed="0.000454"/>
+</kw>
+<var name="${l1}">1</var>
+<status status="PASS" start="2025-08-23T10:30:15.470238" elapsed="0.004893"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.476498" level="INFO">${rows} = ['3', '', 'GT', '14', '9', '5', '0', '0.254', '2684/271.5', '2639/274.2', '18', 'L\nL\nW\nW\nW']</msg>
+<var>${rows}</var>
+<arg>${table_data}</arg>
+<arg>${l1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.475887" elapsed="0.000695"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.477263" level="INFO">${team} = GT</msg>
+<var>${team}</var>
+<arg>${rows}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.476861" elapsed="0.000475"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.477982" level="INFO">${num_won} = L
+L
+W
+W
+W</msg>
+<var>${num_won}</var>
+<arg>${rows}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.477607" elapsed="0.000447"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.478810" level="INFO">${split_text} = ['L', 'L', 'W', 'W', 'W']</msg>
+<var>${split_text}</var>
+<arg>'''${num_won}'''.split('\\n')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.478309" elapsed="0.000574"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.479657" level="INFO">${count_w} = 3</msg>
+<var>${count_w}</var>
+<arg>${split_text}.count('W')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.479139" elapsed="0.000680"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${won_dict}</arg>
+<arg>${team}=${count_w}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.480076" elapsed="0.000461"/>
+</kw>
+<var name="${l1}">2</var>
+<status status="PASS" start="2025-08-23T10:30:15.475409" elapsed="0.005328"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.481706" level="INFO">${rows} = ['4', '', 'MI', '14', '8', '6', '0', '1.142', '2472/261.2', '2301/276.4', '16', 'L\nW\nL\nW\nW']</msg>
+<var>${rows}</var>
+<arg>${table_data}</arg>
+<arg>${l1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.481251" elapsed="0.000529"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.482403" level="INFO">${team} = MI</msg>
+<var>${team}</var>
+<arg>${rows}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.482039" elapsed="0.000448"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.483111" level="INFO">${num_won} = L
+W
+L
+W
+W</msg>
+<var>${num_won}</var>
+<arg>${rows}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.482740" elapsed="0.000443"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.483965" level="INFO">${split_text} = ['L', 'W', 'L', 'W', 'W']</msg>
+<var>${split_text}</var>
+<arg>'''${num_won}'''.split('\\n')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.483449" elapsed="0.000587"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.484782" level="INFO">${count_w} = 3</msg>
+<var>${count_w}</var>
+<arg>${split_text}.count('W')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.484285" elapsed="0.000571"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${won_dict}</arg>
+<arg>${team}=${count_w}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.485099" elapsed="0.000467"/>
+</kw>
+<var name="${l1}">3</var>
+<status status="PASS" start="2025-08-23T10:30:15.481047" elapsed="0.004644"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.486588" level="INFO">${rows} = ['5', '', 'DC', '14', '7', '6', '1', '0.011', '2354/250.4', '2409/256.5', '15', 'W\nL\nL\nN\nL']</msg>
+<var>${rows}</var>
+<arg>${table_data}</arg>
+<arg>${l1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.486168" elapsed="0.000494"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.487276" level="INFO">${team} = DC</msg>
+<var>${team}</var>
+<arg>${rows}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.486914" elapsed="0.000430"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.487995" level="INFO">${num_won} = W
+L
+L
+N
+L</msg>
+<var>${num_won}</var>
+<arg>${rows}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.487617" elapsed="0.000449"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.488805" level="INFO">${split_text} = ['W', 'L', 'L', 'N', 'L']</msg>
+<var>${split_text}</var>
+<arg>'''${num_won}'''.split('\\n')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.488319" elapsed="0.000572"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.489654" level="INFO">${count_w} = 1</msg>
+<var>${count_w}</var>
+<arg>${split_text}.count('W')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.489144" elapsed="0.000581"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${won_dict}</arg>
+<arg>${team}=${count_w}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.490120" elapsed="0.000468"/>
+</kw>
+<var name="${l1}">4</var>
+<status status="PASS" start="2025-08-23T10:30:15.485974" elapsed="0.004743"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.492062" level="INFO">${rows} = ['6', '', 'SRH', '14', '6', '7', '1', '-0.241', '2519/255.3', '2451/242.4', '13', 'W\nW\nW\nN\nL']</msg>
+<var>${rows}</var>
+<arg>${table_data}</arg>
+<arg>${l1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.491414" elapsed="0.000731"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.492786" level="INFO">${team} = SRH</msg>
+<var>${team}</var>
+<arg>${rows}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.492414" elapsed="0.000443"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.494193" level="INFO">${num_won} = W
+W
+W
+N
+L</msg>
+<var>${num_won}</var>
+<arg>${rows}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.493124" elapsed="0.001149"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.495050" level="INFO">${split_text} = ['W', 'W', 'W', 'N', 'L']</msg>
+<var>${split_text}</var>
+<arg>'''${num_won}'''.split('\\n')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.494543" elapsed="0.000582"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.495868" level="INFO">${count_w} = 3</msg>
+<var>${count_w}</var>
+<arg>${split_text}.count('W')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.495379" elapsed="0.000560"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${won_dict}</arg>
+<arg>${team}=${count_w}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.496183" elapsed="0.000457"/>
+</kw>
+<var name="${l1}">5</var>
+<status status="PASS" start="2025-08-23T10:30:15.490997" elapsed="0.005774"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.497677" level="INFO">${rows} = ['7', '', 'LSG', '14', '6', '8', '0', '-0.376', '2732/275.4', '2779/270.1', '12', 'L\nW\nL\nL\nL']</msg>
+<var>${rows}</var>
+<arg>${table_data}</arg>
+<arg>${l1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.497263" elapsed="0.000487"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.498355" level="INFO">${team} = LSG</msg>
+<var>${team}</var>
+<arg>${rows}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.497999" elapsed="0.000422"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.499030" level="INFO">${num_won} = L
+W
+L
+L
+L</msg>
+<var>${num_won}</var>
+<arg>${rows}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.498666" elapsed="0.000435"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.499813" level="INFO">${split_text} = ['L', 'W', 'L', 'L', 'L']</msg>
+<var>${split_text}</var>
+<arg>'''${num_won}'''.split('\\n')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.499347" elapsed="0.000538"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.500604" level="INFO">${count_w} = 1</msg>
+<var>${count_w}</var>
+<arg>${split_text}.count('W')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.500133" elapsed="0.000543"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${won_dict}</arg>
+<arg>${team}=${count_w}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.500915" elapsed="0.000451"/>
+</kw>
+<var name="${l1}">6</var>
+<status status="PASS" start="2025-08-23T10:30:15.497067" elapsed="0.004422"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.502360" level="INFO">${rows} = ['8', '', 'KKR', '14', '5', '7', '2', '-0.305', '1995/227.4', '2075/228.5', '12', 'L\nN\nL\nW\nW']</msg>
+<var>${rows}</var>
+<arg>${table_data}</arg>
+<arg>${l1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.501954" elapsed="0.000477"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.503040" level="INFO">${team} = KKR</msg>
+<var>${team}</var>
+<arg>${rows}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.502676" elapsed="0.000433"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.503706" level="INFO">${num_won} = L
+N
+L
+W
+W</msg>
+<var>${num_won}</var>
+<arg>${rows}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.503352" elapsed="0.000423"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.504488" level="INFO">${split_text} = ['L', 'N', 'L', 'W', 'W']</msg>
+<var>${split_text}</var>
+<arg>'''${num_won}'''.split('\\n')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.504022" elapsed="0.000537"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.505315" level="INFO">${count_w} = 2</msg>
+<var>${count_w}</var>
+<arg>${split_text}.count('W')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.504807" elapsed="0.000581"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${won_dict}</arg>
+<arg>${team}=${count_w}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.505632" elapsed="0.000446"/>
+</kw>
+<var name="${l1}">7</var>
+<status status="PASS" start="2025-08-23T10:30:15.501761" elapsed="0.004441"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.507094" level="INFO">${rows} = ['9', '', 'RR', '14', '4', '10', '0', '-0.549', '2603/273.0', '2773/275.0', '8', 'W\nL\nL\nL\nW']</msg>
+<var>${rows}</var>
+<arg>${table_data}</arg>
+<arg>${l1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.506671" elapsed="0.000617"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.508131" level="INFO">${team} = RR</msg>
+<var>${team}</var>
+<arg>${rows}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.507729" elapsed="0.000474"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.508867" level="INFO">${num_won} = W
+L
+L
+L
+W</msg>
+<var>${num_won}</var>
+<arg>${rows}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.508480" elapsed="0.000460"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.509837" level="INFO">${split_text} = ['W', 'L', 'L', 'L', 'W']</msg>
+<var>${split_text}</var>
+<arg>'''${num_won}'''.split('\\n')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.509345" elapsed="0.000565"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.510643" level="INFO">${count_w} = 2</msg>
+<var>${count_w}</var>
+<arg>${split_text}.count('W')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.510160" elapsed="0.000556"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${won_dict}</arg>
+<arg>${team}=${count_w}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.510957" elapsed="0.000463"/>
+</kw>
+<var name="${l1}">8</var>
+<status status="PASS" start="2025-08-23T10:30:15.506477" elapsed="0.005067"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.512436" level="INFO">${rows} = ['10', '', 'CSK', '14', '4', '10', '0', '-0.647', '2441/278.2', '2461/261.2', '8', 'W\nL\nW\nL\nL']</msg>
+<var>${rows}</var>
+<arg>${table_data}</arg>
+<arg>${l1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.512021" elapsed="0.000488"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.513127" level="INFO">${team} = CSK</msg>
+<var>${team}</var>
+<arg>${rows}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.512757" elapsed="0.000441"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-23T10:30:15.513798" level="INFO">${num_won} = W
+L
+W
+L
+L</msg>
+<var>${num_won}</var>
+<arg>${rows}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.513446" elapsed="0.000421"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.514583" level="INFO">${split_text} = ['W', 'L', 'W', 'L', 'L']</msg>
+<var>${split_text}</var>
+<arg>'''${num_won}'''.split('\\n')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.514116" elapsed="0.000540"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.515400" level="INFO">${count_w} = 2</msg>
+<var>${count_w}</var>
+<arg>${split_text}.count('W')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.514909" elapsed="0.000564"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${won_dict}</arg>
+<arg>${team}=${count_w}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.515713" elapsed="0.000439"/>
+</kw>
+<var name="${l1}">9</var>
+<status status="PASS" start="2025-08-23T10:30:15.511824" elapsed="0.004450"/>
+</iter>
+<var>${l1}</var>
+<value>0</value>
+<value>${count_list}</value>
+<status status="PASS" start="2025-08-23T10:30:15.464696" elapsed="0.051695"/>
+</for>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${won_dict}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.517197" elapsed="0.000723"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.519369" level="INFO">${Dict_val} = 4</msg>
+<var>${Dict_val}</var>
+<arg>max(${won_dict}.values())</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.518662" elapsed="0.000800"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Dict_val}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.520119" elapsed="0.000655"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-23T10:30:15.521943" level="INFO">${max_teams} = {}</msg>
+<var>${max_teams}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.521529" elapsed="0.000500"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.524418" elapsed="0.000466"/>
+</kw>
+<arg>${v} == ${Dict_val}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.523864" elapsed="0.001186"/>
+</kw>
+<var name="${k}">PBKS</var>
+<var name="${v}">4</var>
+<status status="PASS" start="2025-08-23T10:30:15.523579" elapsed="0.001589"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${v} == ${Dict_val}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.525657" elapsed="0.000402"/>
+</kw>
+<var name="${k}">RCB</var>
+<var name="${v}">3</var>
+<status status="PASS" start="2025-08-23T10:30:15.525447" elapsed="0.000751"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${v} == ${Dict_val}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.526700" elapsed="0.000397"/>
+</kw>
+<var name="${k}">GT</var>
+<var name="${v}">3</var>
+<status status="PASS" start="2025-08-23T10:30:15.526487" elapsed="0.000745"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${v} == ${Dict_val}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.527710" elapsed="0.000396"/>
+</kw>
+<var name="${k}">MI</var>
+<var name="${v}">3</var>
+<status status="PASS" start="2025-08-23T10:30:15.527501" elapsed="0.000743"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${v} == ${Dict_val}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.528749" elapsed="0.000399"/>
+</kw>
+<var name="${k}">DC</var>
+<var name="${v}">1</var>
+<status status="PASS" start="2025-08-23T10:30:15.528538" elapsed="0.000746"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${v} == ${Dict_val}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.529784" elapsed="0.000396"/>
+</kw>
+<var name="${k}">SRH</var>
+<var name="${v}">3</var>
+<status status="PASS" start="2025-08-23T10:30:15.529560" elapsed="0.000755"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${v} == ${Dict_val}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.530815" elapsed="0.000412"/>
+</kw>
+<var name="${k}">LSG</var>
+<var name="${v}">1</var>
+<status status="PASS" start="2025-08-23T10:30:15.530602" elapsed="0.000764"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${v} == ${Dict_val}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.531992" elapsed="0.000435"/>
+</kw>
+<var name="${k}">KKR</var>
+<var name="${v}">2</var>
+<status status="PASS" start="2025-08-23T10:30:15.531774" elapsed="0.000793"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${v} == ${Dict_val}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.533051" elapsed="0.000404"/>
+</kw>
+<var name="${k}">RR</var>
+<var name="${v}">2</var>
+<status status="PASS" start="2025-08-23T10:30:15.532842" elapsed="0.000753"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${v} == ${Dict_val}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${max_teams}</arg>
+<arg>${k}=${v}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.534087" elapsed="0.000413"/>
+</kw>
+<var name="${k}">CSK</var>
+<var name="${v}">2</var>
+<status status="PASS" start="2025-08-23T10:30:15.533875" elapsed="0.000767"/>
+</iter>
+<var>${k}</var>
+<var>${v}</var>
+<value>&amp;{won_dict}</value>
+<status status="PASS" start="2025-08-23T10:30:15.522810" elapsed="0.011956"/>
+</for>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${max_teams}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-23T10:30:15.535440" elapsed="0.000685"/>
+</kw>
+<status status="PASS" start="2025-08-23T10:29:34.797565" elapsed="40.739395"/>
+</test>
+<status status="PASS" start="2025-08-23T10:29:34.154583" elapsed="41.384789"/>
+</suite>
+<status status="PASS" start="2025-08-23T10:29:34.095351" elapsed="41.446925"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Practice Pytest" id="s1" pass="1" fail="0" skip="0">Practice Pytest</stat>
+<stat name="Test" id="s1-s1" pass="1" fail="0" skip="0">Practice Pytest.Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
